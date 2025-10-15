@@ -101,6 +101,21 @@
       border-radius: 12px;
     }
 
+    .instagram-post {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .instagram-post iframe {
+      width: 90%;
+      max-width: 600px;
+      height: 700px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00ffcc88;
+      border: 2px solid #00ffcc;
+    }
+
     .members-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -207,12 +222,17 @@
     <div class="home-content">
       <h2>Welcome to BRIGGASMGMT</h2>
       <p>We are a music-driven collective of creators, artists, and innovators. Explore our latest sounds, meet the crew, and vibe with our visual world. This is more than a brand — it's a movement.</p>
+
       <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/45znD8_DLho" 
-          title="BRIGGASMGMT Video" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        <iframe src="https://www.youtube.com/embed/45znD8_DLho"
+          title="BRIGGASMGMT Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
         </iframe>
+      </div>
+
+      <div class="instagram-post">
+        <iframe src="https://www.instagram.com/p/C1YR8L-IWWE/embed" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -241,17 +261,21 @@
         <iframe src="https://www.instagram.com/reyriverr/embed" allowfullscreen></iframe>
       </div>
       <div class="member-card">
-        <h3>ANTHONY</h3>
-        <p>🔧 Mechanic<br>📸 Photographer<br>@anthony.basdeo</p>
-        <iframe src="https://www.instagram.com/anthony.basdeo/embed" allowfullscreen></iframe>
+        <h3>RLLY</h3>
+        <p>🎤 Artist<br>@___rllly</p>
+        <iframe src="https://www.instagram.com/___rllly/embed" allowfullscreen></iframe>
       </div>
       <div class="member-card">
         <h3>NOAH CAMPBELL</h3>
         <p>🎤 Artist<br>@ncamp__</p>
         <iframe src="https://www.instagram.com/ncamp__/embed" allowfullscreen></iframe>
       </div>
+      <div style="text-align:center; padding: 20px;">
+        <h3 style="color:#00ffcc;">STEVEN</h3>
+        <p style="font-size:14px;">🎤 Artist</p>
+      </div>
     </div>
-  </div>
+    </div>
 
   <div id="gallery" class="tab">
     <h2 style="text-align:center; color:#00ffcc;">Instagram Gallery</h2>
@@ -262,7 +286,8 @@
     <h2 style="text-align:center; color:#00ffcc;">Latest Sounds from Briggas Mgmt</h2>
     <iframe class="soundcloud" scrolling="no" allow="autoplay"
       src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/briggas-mgmt/briggas-da-best&color=%2300ffcc&auto_play=false&show_user=true">
-        <iframe class="soundcloud" scrolling="no" allow="autoplay"
+    </iframe>
+    <iframe class="soundcloud" scrolling="no" allow="autoplay"
       src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/briggas-mgmt/lean-bar&color=%2300ffcc&auto_play=false&show_user=true">
     </iframe>
     <a class="soundcloud-link" href="https://soundcloud.com/briggas-mgmt/popular-tracks" target="_blank">See more on SoundCloud →</a>
