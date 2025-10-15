@@ -2,330 +2,316 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <title>MSG's Rewards</title>
+  <title>BRIGGASMGMT</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-image: url('https://copilot.microsoft.com/th/id/BCO.57843d63-0365-4c09-bf2e-01a823dfd858.png');
-      background-size: cover;
-      background-position: center;
+      background-color: #0a0a0a;
       color: white;
     }
 
-    .overlay {
-      background-color: rgba(20, 0, 40, 0.7);
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      display: flex;
-      flex-direction: row;
-    }
-
-    .sidebar {
-      width: 180px;
-      padding: 40px 20px;
-      background-color: rgba(0, 0, 50, 0.6);
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      align-items: flex-start;
-    }
-
-    .sidebar a.title-link {
-      font-size: 24px;
-      font-weight: bold;
-      color: #B19CD9;
-      text-decoration: none;
-    }
-
-    .sidebar a.title-link:hover {
-      text-decoration: underline;
-      color: #DDA0DD;
-    }
-
-    .sidebar a {
-      text-decoration: none;
-      color: white;
-      font-size: 18px;
-      padding: 8px 12px;
-      border-radius: 6px;
-      transition: background-color 0.3s;
-    }
-
-    .sidebar a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .main {
-      flex: 1;
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    h1 {
-      font-size: 48px;
-      color: #B19CD9;
-      margin-bottom: 30px;
-      text-align: center;
-      text-shadow: 2px 2px 0 #4B0082;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 30px;
-      width: 100%;
-      max-width: 800px;
-    }
-
-    .square {
-      background-color: rgba(128, 0, 128, 0.8);
-      border: 2px solid white;
-      border-radius: 12px;
-      height: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: bold;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      cursor: pointer;
-      transition: transform 0.3s, background-color 0.3s;
-    }
-
-    .square:hover {
-      transform: scale(1.05);
-      background-color: rgba(160, 32, 240, 0.9);
-    }
-
-    .leaderboard-link {
-      margin-top: 40px;
-      font-size: 32px;
-      font-weight: bold;
-      color: #00FF7F;
-      text-shadow: 2px 2px 0 #006400, 4px 4px 0 #003300;
-      text-decoration: none;
-      transition: transform 0.3s;
-    }
-
-    .leaderboard-link:hover {
-      transform: scale(1.05);
-      text-decoration: underline;
-    }
-
-    .modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.8);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-
-    .modal-content {
-      background-color: #2e004f;
+    header {
+      background: linear-gradient(90deg, #00ffcc, #ff00cc);
       padding: 30px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 500px;
-      color: white;
       text-align: center;
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
-    }
-
-    .modal-content p {
-      font-size: 16px;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
-
-    .modal-content a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #FFD700;
-      color: black;
+      font-size: 48px;
       font-weight: bold;
+      color: black;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    nav {
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 12px 0;
+      border-bottom: 2px solid #00ffcc;
+    }
+
+    nav a {
+      color: #00ffcc;
       text-decoration: none;
+      font-size: 20px;
+      padding: 8px 16px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #00ffcc;
+      color: black;
+      border-radius: 4px;
+    }
+
+    .tab {
+      display: none;
+      padding: 40px 20px;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    .active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .home-content {
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .home-content h2 {
+      font-size: 36px;
+      color: #00ffcc;
+    }
+
+    .home-content p {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    .video-wrapper {
+      margin-top: 40px;
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00ffcc88;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 12px;
+    }
+
+    .instagram-post {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .instagram-post iframe {
+      width: 90%;
+      max-width: 600px;
+      height: 700px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00ffcc88;
+      border: 2px solid #00ffcc;
+    }
+
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .member-card {
+      background-color: #111;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 0 10px #00ffcc33;
+    }
+
+    .member-card h3 {
+      color: #00ffcc;
+      margin-bottom: 5px;
+    }
+
+    .member-card p {
+      margin: 0 0 10px;
+      font-size: 14px;
+    }
+
+    .member-card iframe {
+      width: 100%;
+      height: 150px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .gallery-frame {
+      width: 100%;
+      height: 80vh;
+      border: none;
       border-radius: 8px;
     }
 
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 28px;
-      color: white;
-      cursor: pointer;
+    .soundcloud {
+      width: 100%;
+      height: 166px;
+      border: none;
+      margin-bottom: 20px;
+      border-radius: 8px;
     }
 
-    @media (max-width: 700px) {
-      .overlay {
-        flex-direction: column;
-        position: relative;
-      }
-
-      .sidebar {
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 10px;
-        overflow-x: auto;
-        white-space: nowrap;
-        font-size: 14px;
-      }
-
-      .main {
-        padding: 20px;
-      }
-
-      h1 {
-        font-size: 28px;
-        margin-bottom: 20px;
-      }
-
-      .grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 15px;
-      }
-
-      .square {
-        height: 80px;
-        font-size: 14px;
-        padding: 6px;
-      }
-
-      .leaderboard-link {
-        font-size: 20px;
-        margin-top: 20px;
-        text-align: center;
-      }
-
-      .modal-content {
-        padding: 16px;
-        font-size: 14px;
-        width: 90%;
-      }
-
-      .modal-content p {
-        font-size: 14px;
-      }
-
-      .modal-content a {
-        padding: 8px 16px;
-        font-size: 14px;
-      }
-
-      .close-btn {
-        font-size: 22px;
-        top: 10px;
-        right: 20px;
-      }
+    a.soundcloud-link {
+      color: #00ffcc;
+      text-align: center;
+      display: block;
+      margin-top: 10px;
     }
 
-    @media (max-width: 400px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      background-color: #0a0a0a;
+      color: #888;
+    }
 
-      .square {
-        height: 70px;
-        font-size: 13px;
-      }
+    footer a {
+      color: #00ffcc;
+      text-decoration: none;
+    }
 
-      h1 {
-        font-size: 24px;
-      }
+    .contact-section {
+      padding: 40px 20px;
+      text-align: center;
+      background-color: #111;
+      border-top: 2px solid #00ffcc;
+    }
+
+    .contact-section h2 {
+      color: #00ffcc;
+    }
+
+    .contact-section p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .contact-section a {
+      color: #00ffcc;
+      font-size: 20px;
+      display: inline-block;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <div class="overlay">
-    <div class="sidebar">
-      <a href="index.html" class="title-link">MSG's Rewards</a>
-      <a href="home.html">🏠 Home</a>
-      <a href="index.html">🎁 Rewards</a>
-      <a href="info.html">ℹ️ Info</a>
-      <a href="shop.html">🛒 Shop</a>
-    </div>
+  <header>🎶 BRIGGASMGMT</header>
 
-    <div class="main">
-      <h1>Welcome</h1>
-      <div class="grid">
-        <div class="square" onclick="openModal(1)">Skinrave</div>
-        <div class="square" onclick="openModal(2)">Chicken</div>
-        <div class="square" onclick="openModal(3)">Clash</div>
-        <div class="square" onclick="openModal(4)">Rain</div>
-        <div class="square" onclick="openModal(5)">Shuffle</div>
-        <div class="square" onclick="openModal(6)">Shock</div>
+  <nav>
+    <a href="#" onclick="showTab('home')">Home</a>
+    <a href="#" onclick="showTab('members')">Members</a>
+    <a href="#" onclick="showTab('gallery')">Gallery</a>
+    <a href="#" onclick="showTab('sounds')">Latest Sounds</a>
+  </nav>
+
+  <div id="home" class="tab active">
+    <div class="home-content">
+      <h2>Welcome to BRIGGASMGMT</h2>
+      <p>We are a music-driven collective of creators, artists, and innovators. Explore our latest sounds, meet the crew, and vibe with our visual world. This is more than a brand — it's a movement.</p>
+
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/45znD8_DLho"
+          title="BRIGGASMGMT Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
       </div>
 
-      <a href="leaderboards.html" class="leaderboard-link">Leaderboard Reward's</a>
+      <div class="instagram-post">
+        <iframe src="https://www.instagram.com/p/C1YR8L-IWWE/embed" allowfullscreen></iframe>
+      </div>
     </div>
   </div>
 
-  <!-- Modal -->
-  <div class="modal" id="noteModal">
-    <div class="close-btn" onclick="closeModal()">×</div>
-    <div class="modal-content">
-      <h2 id="modalTitle">Note</h2>
-      <p id="noteText"></p>
-      <a href="#" id="playLink" target="_blank">PLAY NOW</a>
+  <div id="members" class="tab">
+    <h2 style="text-align:center; color:#00ffcc;">Meet the BRIGGASMGMT Collective</h2>
+    <div class="members-grid">
+      <div class="member-card">
+        <h3>OGBRIGGA</h3>
+        <p>🎤 Artist<br>@ogbrigga</p>
+        <iframe src="https://www.instagram.com/ogbrigga/embed" allowfullscreen></iframe>
+      </div>
+      <div class="member-card">
+        <h3>MSG</h3>
+        <p>🎤 Artist<br>🎮 Streamer<br>@msgtaken</p>
+        <iframe src="https://www.instagram.com/msgtaken/embed" allowfullscreen></iframe>
+      </div>
+      <div class="member-card">
+        <h3>HENRY</h3>
+        <p>🎤 Artist<br>📈 Trader<br>@henry.basualdoo</p>
+        <iframe src="https://www.instagram.com/henry.basualdoo/embed" allowfullscreen></iframe>
+      </div>
+      <div class="member-card">
+        <h3>REY</h3>
+        <p>📸 Photographer<br>🎧 Producer<br>🎤 Artist<br>@reyriverr</p>
+        <iframe src="https://www.instagram.com/reyriverr/embed" allowfullscreen></iframe>
+      </div>
+      <div class="member-card">
+        <h3>RLLY</h3>
+        <p>🎤 Artist<br>@___rllly</p>
+        <iframe src="https://www.instagram.com/___rllly/embed" allowfullscreen></iframe>
+      </div>
+      <div class="member-card">
+        <h3>NOAH CAMPBELL</h3>
+        <p>🎤 Artist<br>@ncamp__</p>
+        <iframe src="https://www.instagram.com/ncamp__/embed" allowfullscreen></iframe>
+      </div>
+      <div style="text-align:center; padding: 20px;">
+        <h3 style="color:#00ffcc;">STEVEN</h3>
+        <p style="font-size:14px;">🎤 Artist</p>
+      </div>
     </div>
+    </div>
+
+  <div id="gallery" class="tab">
+    <h2 style="text-align:center; color:#00ffcc;">Instagram Gallery</h2>
+    <iframe class="gallery-frame" src="https://www.instagram.com/briggasmgmt/embed" allowfullscreen></iframe>
   </div>
+
+  <div id="sounds" class="tab">
+    <h2 style="text-align:center; color:#00ffcc;">Latest Sounds from Briggas Mgmt</h2>
+    <iframe class="soundcloud" scrolling="no" allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/briggas-mgmt/briggas-da-best&color=%2300ffcc&auto_play=false&show_user=true">
+    </iframe>
+    <iframe class="soundcloud" scrolling="no" allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/briggas-mgmt/lean-bar&color=%2300ffcc&auto_play=false&show_user=true">
+    </iframe>
+    <a class="soundcloud-link" href="https://soundcloud.com/briggas-mgmt/popular-tracks" target="_blank">See more on SoundCloud →</a>
+  </div>
+
+  <div class="contact-section">
+    <h2>Contact Us</h2>
+    <p>
+      If you have business opportunities for BRIGGASMGMT, we’d love to talk.<br>
+      We also support new artists and entrepreneurs seeking guidance — reach out and let’s build something powerful together.
+    </p>
+    <a href="mailto:briggasmgmt@gmail.com">📧 briggasmgmt@gmail.com</a>
+  </div>
+
+  <footer>
+    <p>© BRIGGASMGMT 2025. All rights reserved.</p>
+    <p><a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">Privacy Policy</a></p>
+  </footer>
 
   <script>
-    const messages = {
-      1: {
-        title: "Skinrave",
-        text: "Sign up to skinrave today to receive perks when we stream on the site, and get access to the leaderboard prizes",
-        link: "https://skinrave.gg/r/msg"
-      },
-      2: {
-        title: "Chicken",
-        text: "Sign up to chicken today to receive perks when we stream on the site, and get access to the leaderboard prizes",
-        link: "https://chicken.gg/r/msg"
-      },
-      3: {
-        title: "Clash",
-        text: "Sign up to clash today to receive perks when we stream on the site, and get access to the leaderboard prizes",
-        link: "https://clash.gg/r/msg"
-      },
-      4: {
-        title: "Rain",
-        text: "Sign up to rain today to receive perks when we stream on the site, and get access to the leaderboard prizes",
-        link: "https://rain.gg/r/msg"
-      },
-      5: {
-        title: "Shuffle",
-        text: "Sign up to shuffle today to receive perks when we stream on the site, and get access to the leaderboard prizes",
-        link: "https://shuffle.com/r/msg"
-      },
-      6: {
-        title: "Shock",
-        text: "Sign up to shock today to receive perks when we stream on the site, and get access to the leaderboard prizes",
-        link: "https://shock.com/?r=MESSAGE"
-      }
-    };
-
-    function openModal(squareNumber) {
-      const data = messages[squareNumber];
-      document.getElementById("noteModal").style.display = "flex";
-      document.getElementById("modalTitle").innerText = data.title;
-      document.getElementById("noteText").innerText = data.text;
-      document.getElementById("playLink").href = data.link;
-    }
-
-    function closeModal() {
-      document.getElementById("noteModal").style.display = "none";
+    function showTab(tabId) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      window.scrollTo(0, 0);
     }
   </script>
 </body>
