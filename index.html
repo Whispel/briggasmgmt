@@ -9,22 +9,58 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: #0a0a0a;
       color: white;
+      overflow-x: hidden;
     }
 
-    header {
-      background: linear-gradient(90deg, #00ffcc, #ff00cc);
-      padding: 30px;
-      text-align: center;
-      font-size: 48px;
-      font-weight: bold;
+    /* Entry Screen */
+    #entry-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      backdrop-filter: blur(6px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 1s ease;
+    }
+
+    #entry-screen h1 {
+      font-size: 64px;
+      color: #00ffff;
+      text-shadow: 0 0 20px #00ffff;
+      animation: glow 2s infinite alternate;
+      margin-bottom: 30px;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00ffff; }
+      to { text-shadow: 0 0 30px #00ffff; }
+    }
+
+    #enter-btn {
+      padding: 12px 24px;
+      font-size: 20px;
+      background-color: #00ffff;
       color: black;
-      animation: pulse 2s infinite;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 10px #00ffff88;
+      transition: transform 0.3s;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+    #enter-btn:hover {
+      transform: scale(1.05);
+    }
+
+    #bg-music {
+      display: none;
     }
 
     .banner {
@@ -52,6 +88,22 @@
       45% { opacity: 1; transform: translateX(0); }
       55% { opacity: 0; transform: translateX(-100%); }
       100% { opacity: 0; transform: translateX(-100%); }
+    }
+
+    header {
+      background: linear-gradient(90deg, #00ffcc, #ff00cc);
+      padding: 30px;
+      text-align: center;
+      font-size: 48px;
+      font-weight: bold;
+      color: black;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
 
     nav {
@@ -251,12 +303,19 @@
   </style>
 </head>
 <body>
+  <div id="entry-screen">
+    <h1>BRIGGASMGMT</h1>
+    <button id="enter-btn">Enter</button>
+  </div>
+
+  <iframe id="bg-music" width="0" height="0" src="" frameborder="0" allow="autoplay"></iframe>
+
   <header>🎶 BRIGGASMGMT</header>
   <div class="banner">
     <div class="banner-message" id="quoteBanner">Loading motivation...</div>
   </div>
 
-  <nav>
+    <nav>
     <a href="#" onclick="showTab('home')">Home</a>
     <a href="#" onclick="showTab('members')">Members</a>
     <a href="#" onclick="showTab('gallery')">Gallery</a>
@@ -281,8 +340,16 @@
   <div id="members" class="tab">
     <h2 style="text-align:center; color:#00ffcc;">Meet the BRIGGASMGMT Collective</h2>
     <div class="members-grid">
-      <div class="member-card"><h3>OGBRIGGA</h3><p>Artist</p><iframe src="https://www.instagram.com/ogbrigga/embed" allowfullscreen></iframe><a href="https://linktr.ee/ogbrigga" target="_blank">🎵</a></div>
-      <div class="member-card"><h3>Rlly</h3><p>Artist</p>        <iframe src="https://www.instagram.com/___rlly/embed" allowfullscreen></iframe>
+      <div class="member-card">
+        <h3>OGBRIGGA</h3>
+        <p>Artist</p>
+        <iframe src="https://www.instagram.com/ogbrigga/embed" allowfullscreen></iframe>
+        <a href="https://linktr.ee/ogbrigga" target="_blank">🎵</a>
+      </div>
+      <div class="member-card">
+        <h3>Rlly</h3>
+        <p>Artist</p>
+        <iframe src="https://www.instagram.com/___rlly/embed" allowfullscreen></iframe>
         <a href="https://m.soundcloud.com/user-392160961" target="_blank">🎵</a>
       </div>
       <div class="member-card">
@@ -384,6 +451,14 @@
 
     rotateQuotes();
     setInterval(rotateQuotes, 10000);
+
+    document.getElementById('enter-btn').addEventListener('click', () => {
+      document.getElementById('entry-screen').style.opacity = '0';
+      setTimeout(() => {
+        document.getElementById('entry-screen').style.display = 'none';
+      }, 1000);
+      document.getElementById('bg-music').src = "https://www.youtube.com/embed/c0fGcDK-Omk?autoplay=1&loop=1&playlist=c0fGcDK-Omk";
+    });
   </script>
 </body>
 </html>
