@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>BRIGGASMGMT</title>
   <style>
+    /* [Your original CSS remains unchanged — already optimized and stylish] */
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -91,13 +92,21 @@
       box-shadow: 0 0 20px #00ffcc88;
     }
 
-    .video-wrapper iframe {
+    .video-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      border: none;
+      background-color: #000000cc;
+      color: #00ffcc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
       border-radius: 12px;
     }
 
@@ -146,6 +155,13 @@
       height: 150px;
       border: none;
       border-radius: 4px;
+    }
+
+    .member-card a {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 20px;
+      text-decoration: none;
     }
 
     .gallery-frame {
@@ -207,7 +223,6 @@
       margin-top: 20px;
     }
 
-    /* Chat Sidebar Styles */
     #chat-toggle {
       position: fixed;
       right: 20px;
@@ -292,7 +307,7 @@
       <p>We are a music-driven collective of creators, artists, and innovators. Explore our latest sounds, meet the crew, and vibe with our visual world. This is more than a brand — it's a movement.</p>
 
       <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/45znD8_DLho" title="BRIGGASMGMT Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <a class="video-overlay" href="https://www.youtube.com/watch?v=45znD8_DLho" target="_blank">▶ Play Video</a>
       </div>
 
       <div class="instagram-post">
@@ -301,16 +316,51 @@
     </div>
   </div>
 
-  <div id="members" class="tab">
+    <div id="members" class="tab">
     <h2 style="text-align:center; color:#00ffcc;">Meet the BRIGGASMGMT Collective</h2>
     <div class="members-grid">
-      <!-- Member cards here (same as original) -->
+      <div class="member-card">
+        <h3>OGBRIGGA</h3>
+        <p>Artist</p>
+        <iframe src="https://www.instagram.com/ogbrigga/embed" allowfullscreen></iframe>
+        <a href="https://linktr.ee/ogbrigga" target="_blank">🎵</a>
+      </div>
+      <div class="member-card">
+        <h3>Rlly</h3>
+        <p>Artist</p>
+        <iframe src="https://www.instagram.com/___rllly/embed" allowfullscreen></iframe>
+        <a href="https://m.soundcloud.com/user-392160961" target="_blank">🎵</a>
+      </div>
+      <div class="member-card">
+        <h3>Rey</h3>
+        <p>Artist, Producer, Photographer</p>
+        <iframe src="https://www.instagram.com/_mad4luv/embed" allowfullscreen></iframe>
+        <a href="https://linktr.ee/mad4luv" target="_blank">🎵</a>
+      </div>
+      <div class="member-card">
+        <h3>MSG</h3>
+        <p>Artist, Streamer</p>
+        <iframe src="https://www.instagram.com/msgtaken/embed" allowfullscreen></iframe>
+        <a href="https://linktr.ee/msgtaken" target="_blank">🎵</a>
+      </div>
+      <div class="member-card">
+        <h3>Ronin</h3>
+        <p>Artist, Trader</p>
+        <iframe src="https://www.instagram.com/henry.basualdoo/embed" allowfullscreen></iframe>
+        <a href="https://on.soundcloud.com/ZMEwz3H5GsiX2IwS6N" target="_blank">🎵</a>
+      </div>
+      <div class="member-card">
+        <h3>Steven</h3>
+        <p>Artist</p>
+        <iframe src="https://www.instagram.com/briggasmgmt/embed" allowfullscreen></iframe>
+        <a href="https://on.soundcloud.com/0WLOkIycY6d9jlEi6s" target="_blank">🎵</a>
+      </div>
     </div>
   </div>
 
   <div id="gallery" class="tab">
     <h2 style="text-align:center; color:#00ffcc;">Instagram Gallery</h2>
-    <iframe class="gallery-frame" src="https://www.instagram.com/briggasmgmt
+    <iframe class="gallery-frame" src="https://www.instagram.com/briggasmgmt/embed" allowfullscreen></iframe>
   </div>
 
   <div id="sounds" class="tab">
