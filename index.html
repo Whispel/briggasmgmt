@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>BRIGGASMGMT</title>
   <style>
-    /* [Your original CSS remains unchanged — already optimized and stylish] */
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -26,6 +25,33 @@
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
+    }
+
+    .banner {
+      background-color: #111;
+      color: #00ffcc;
+      font-size: 18px;
+      padding: 10px 0;
+      text-align: center;
+      border-top: 2px solid #00ffcc;
+      border-bottom: 2px solid #00ffcc;
+      overflow: hidden;
+      height: 40px;
+      position: relative;
+    }
+
+    .banner-message {
+      position: absolute;
+      width: 100%;
+      animation: fadeSlide 10s linear infinite;
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateX(100%); }
+      10% { opacity: 1; transform: translateX(0); }
+      45% { opacity: 1; transform: translateX(0); }
+      55% { opacity: 0; transform: translateX(-100%); }
+      100% { opacity: 0; transform: translateX(-100%); }
     }
 
     nav {
@@ -166,7 +192,7 @@
 
     .gallery-frame {
       width: 100%;
-      height: 80vh;
+      height: 90vh;
       border: none;
       border-radius: 8px;
     }
@@ -184,19 +210,6 @@
       text-align: center;
       display: block;
       margin-top: 10px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      background-color: #0a0a0a;
-      color: #888;
-    }
-
-    footer a {
-      color: #00ffcc;
-      text-decoration: none;
     }
 
     .contact-section {
@@ -223,76 +236,25 @@
       margin-top: 20px;
     }
 
-    #chat-toggle {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      background-color: #00ffcc;
-      color: black;
-      padding: 10px 14px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: bold;
-      z-index: 1000;
-      box-shadow: 0 0 10px #00ffcc88;
-    }
-
-    #chat-sidebar {
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      width: 300px;
-      max-height: 400px;
-      background-color: #111;
-      border-left: 2px solid #00ffcc;
-      display: flex;
-      flex-direction: column;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      z-index: 999;
-      box-shadow: -2px 0 10px #00ffcc88;
-    }
-
-    #chat-sidebar.open {
-      transform: translateX(0);
-    }
-
-    #chat-header {
-      background-color: #00ffcc;
-      color: black;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-      font-weight: bold;
-    }
-
-    #chat-messages {
-      flex: 1;
-      padding: 10px;
-      overflow-y: auto;
-      font-size: 14px;
-    }
-
-    .chat-message {
-      margin-bottom: 8px;
-      background-color: #222;
-      padding: 6px 10px;
-      border-radius: 6px;
-      color: #00ffcc;
-    }
-
-    #chat-input {
-      border: none;
-      padding: 10px;
+    footer {
+      text-align: center;
+      padding: 20px;
       font-size: 14px;
       background-color: #0a0a0a;
-      color: white;
-      border-top: 1px solid #00ffcc;
+      color: #888;
+    }
+
+    footer a {
+      color: #00ffcc;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
   <header>🎶 BRIGGASMGMT</header>
+  <div class="banner">
+    <div class="banner-message" id="quoteBanner">Loading motivation...</div>
+  </div>
 
   <nav>
     <a href="#" onclick="showTab('home')">Home</a>
@@ -316,19 +278,11 @@
     </div>
   </div>
 
-    <div id="members" class="tab">
+  <div id="members" class="tab">
     <h2 style="text-align:center; color:#00ffcc;">Meet the BRIGGASMGMT Collective</h2>
     <div class="members-grid">
-      <div class="member-card">
-        <h3>OGBRIGGA</h3>
-        <p>Artist</p>
-        <iframe src="https://www.instagram.com/ogbrigga/embed" allowfullscreen></iframe>
-        <a href="https://linktr.ee/ogbrigga" target="_blank">🎵</a>
-      </div>
-      <div class="member-card">
-        <h3>Rlly</h3>
-        <p>Artist</p>
-        <iframe src="https://www.instagram.com/___rllly/embed" allowfullscreen></iframe>
+      <div class="member-card"><h3>OGBRIGGA</h3><p>Artist</p><iframe src="https://www.instagram.com/ogbrigga/embed" allowfullscreen></iframe><a href="https://linktr.ee/ogbrigga" target="_blank">🎵</a></div>
+      <div class="member-card"><h3>Rlly</h3><p>Artist</p>        <iframe src="https://www.instagram.com/___rlly/embed" allowfullscreen></iframe>
         <a href="https://m.soundcloud.com/user-392160961" target="_blank">🎵</a>
       </div>
       <div class="member-card">
@@ -365,13 +319,15 @@
 
   <div id="sounds" class="tab">
     <h2 style="text-align:center; color:#00ffcc;">Latest Sounds from Briggas Mgmt</h2>
-    <iframe class="soundcloud" scrolling="no" allow="autoplay"
-      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/briggas-mgmt/briggas-da-best&color=%2300ffcc&auto_play=false&show_user=true">
-    </iframe>
-    <iframe class="soundcloud" scrolling="no" allow="autoplay"
-      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/briggas-mgmt/lean-bar&color=%2300ffcc&auto_play=false&show_user=true">
-    </iframe>
-    <a class="soundcloud-link" href="https://soundcloud.com/briggas-mgmt/popular-tracks" target="_blank">See more on SoundCloud →</a>
+    <div style="max-width: 800px; margin: auto;">
+      <iframe class="soundcloud" scrolling="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/briggas-mgmt/briggas-da-best&color=%2300ffcc&auto_play=false&show_user=true">
+      </iframe>
+      <iframe class="soundcloud" scrolling="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/briggas-mgmt/lean-bar&color=%2300ffcc&auto_play=false&show_user=true">
+      </iframe>
+      <a class="soundcloud-link" href="https://soundcloud.com/briggas-mgmt/popular-tracks" target="_blank">See more on SoundCloud →</a>
+    </div>
   </div>
 
   <div class="contact-section">
@@ -388,17 +344,6 @@
     <p><a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">Privacy Policy</a></p>
   </footer>
 
-  <!-- Chat Sidebar -->
-  <div id="chat-toggle" onclick="toggleChat()">💬 Chat</div>
-  <div id="chat-sidebar">
-    <div id="chat-header">
-      <span>Anonymous Chat</span>
-      <button onclick="toggleChat()">✖</button>
-    </div>
-    <div id="chat-messages"></div>
-    <input type="text" id="chat-input" placeholder="Type a message..." onkeydown="handleChatKey(event)" />
-  </div>
-
   <script>
     function showTab(tabId) {
       document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
@@ -406,26 +351,39 @@
       window.scrollTo(0, 0);
     }
 
-    const chatToggle = document.getElementById('chat-toggle');
-    const chatSidebar = document.getElementById('chat-sidebar');
-    const chatMessages = document.getElementById('chat-messages');
-    const chatInput = document.getElementById('chat-input');
+    const quotes = [
+      "Push yourself, because no one else is going to do it for you.",
+      "Great things never come from comfort zones.",
+      "Dream it. Wish it. Do it.",
+      "Success doesn’t just find you. You have to go out and get it.",
+      "The harder you work for something, the greater you’ll feel when you achieve it.",
+      "Don’t stop when you’re tired. Stop when you’re done.",
+      "Wake up with determination. Go to bed with satisfaction.",
+      "Do something today that your future self will thank you for.",
+      "Little things make big days.",
+      "It’s going to be hard, but hard does not mean impossible.",
+      "Don’t wait for opportunity. Create it.",
+      "Sometimes we’re tested not to show our weaknesses, but to discover our strengths.",
+      "The key to success is to focus on goals, not obstacles.",
+      "Believe you can and you’re halfway there.",
+      "Doubt kills more dreams than failure ever will.",
+      "Discipline is doing it even when you don’t feel like it.",
+      "You don’t have to be great to start, but you have to start to be great.",
+      "Success is what comes after you stop making excuses.",
+      "Stay positive. Work hard. Make it happen.",
+      "Your only limit is your mind."
+    ];
 
-    function toggleChat() {
-      chatSidebar.classList.toggle('open');
-      chatToggle.style.display = chatSidebar.classList.contains('open') ? 'none' : 'block';
+    let quoteIndex = 0;
+    const banner = document.getElementById('quoteBanner');
+
+    function rotateQuotes() {
+      banner.textContent = quotes[quoteIndex];
+      quoteIndex = (quoteIndex + 1) % quotes.length;
     }
 
-    function handleChatKey(e) {
-      if (e.key === 'Enter' && chatInput.value.trim()) {
-        const msg = document.createElement('div');
-        msg.className = 'chat-message';
-        msg.textContent = `Anon: ${chatInput.value}`;
-        chatMessages.appendChild(msg);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-        chatInput.value = '';
-      }
-    }
+    rotateQuotes();
+    setInterval(rotateQuotes, 10000);
   </script>
 </body>
 </html>
